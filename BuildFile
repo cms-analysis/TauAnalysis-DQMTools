@@ -1,0 +1,20 @@
+<use name=FWCore/Framework>
+<use name=FWCore/PluginManager>
+<use name=FWCore/ParameterSet>
+<use name=FWCore/ServiceRegistry>
+<use name=DQMServices/Core>
+<use name=rootcore>
+<use name=rootgraphics>
+
+<flags EDM_PLUGIN=1>
+
+<export>
+  <lib name=ElectroWeakAnalysisEWKTau>
+  <use name=FWCore/Framework>
+  <use name=FWCore/PluginManager>
+  <use name=FWCore/ParameterSet>
+  <use name=FWCore/ServiceRegistry>
+  <use name=DQMServices/Core>
+  <use name=rootcore>
+  <use name=rootgraphics>
+</export>
