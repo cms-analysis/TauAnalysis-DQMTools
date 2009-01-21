@@ -1,4 +1,4 @@
-#include "TauAnalysis/DQMTools/interface/DQMHistPlotter.h"
+#include "TauAnalysis/DQMTools/plugins/DQMHistPlotter.h"
 
 #include "TauAnalysis/DQMTools/interface/dqmAuxFunctions.h"
 #include "TauAnalysis/DQMTools/interface/generalAuxFunctions.h"

@@ -1,12 +1,11 @@
-#ifndef ElectroWeakAnalysis_EWKTau_DQMHistAdder_h
-#define ElectroWeakAnalysis_EWKTau_DQMHistAdder_h
+#ifndef TauAnalysis_DQMTools_DQMFileLoader_h
+#define TauAnalysis_DQMTools_DQMFileLoader_h
 
-/** \class DQMHistAdder
+/** \class DQMFileLoader
  *  
- *  Class to add DQM monitoring elements stored in separate directories in DQMStore
- *  (in order to e.g. compute the total Standard Model expectation)
+ *  Class to load DQM monitoring elements from ROOT files into DQMStore
  *
- *  $Date: 2008/11/18 16:41:39 $
+ *  $Date: 2009/01/21 16:04:59 $
  *  $Revision: 1.1 $
  *  \author Christian Veelken, UC Davis
  */
@@ -24,27 +23,30 @@
 #include <vector>
 #include <string>
 
-class DQMHistAdder : public edm::EDAnalyzer
+class DQMFileLoader : public edm::EDAnalyzer
 {
   typedef std::vector<std::string> vstring;
+  typedef std::set<std::string> sstring;
 
-  struct cfgEntryAddJob
+  struct cfgEntryFileSet
   {
-    cfgEntryAddJob(const std::string&, const edm::ParameterSet&);
+    cfgEntryFileSet(const std::string&, const edm::ParameterSet&);
     void print() const;
     std::string name_;
-    vstring dqmDirectories_input_;
-    std::string dqmDirectory_output_;
+    vstring inputFileNames_;
+    double scaleFactor_;
+    std::string dqmDirectory_store_;
   };
 
  public:
-  explicit DQMHistAdder(const edm::ParameterSet&);
-  virtual ~DQMHistAdder();
+  explicit DQMFileLoader(const edm::ParameterSet&);
+  virtual ~DQMFileLoader();
   virtual void analyze(const edm::Event&, const edm::EventSetup&);
   virtual void endJob();  
 
 private:
-  std::map<std::string, cfgEntryAddJob> addJobs_;
+  std::map<std::string, cfgEntryFileSet> fileSets_;
+  std::map<std::string, sstring> subDirectoryMap_;
   int cfgError_;
 };
 

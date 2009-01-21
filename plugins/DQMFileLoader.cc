@@ -1,4 +1,4 @@
-#include "TauAnalysis/DQMTools/interface/DQMFileLoader.h"
+#include "TauAnalysis/DQMTools/plugins/DQMFileLoader.h"
 
 #include "TauAnalysis/DQMTools/interface/dqmAuxFunctions.h"
 #include "TauAnalysis/DQMTools/interface/generalAuxFunctions.h"

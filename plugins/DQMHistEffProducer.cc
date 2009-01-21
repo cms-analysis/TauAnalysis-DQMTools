@@ -1,4 +1,4 @@
-#include "TauAnalysis/DQMTools/interface/DQMHistEffProducer.h"
+#include "TauAnalysis/DQMTools/plugins/DQMHistEffProducer.h"
 
 #include "TauAnalysis/DQMTools/interface/dqmAuxFunctions.h"
 #include "TauAnalysis/DQMTools/interface/generalAuxFunctions.h"

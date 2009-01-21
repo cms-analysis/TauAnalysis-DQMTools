@@ -1,4 +1,4 @@
-#include "TauAnalysis/DQMTools/interface/DQMSimpleFileSaver.h"
+#include "TauAnalysis/DQMTools/plugins/DQMSimpleFileSaver.h"
 
 // framework & common header files
 #include "FWCore/Framework/interface/Frameworkfwd.h"

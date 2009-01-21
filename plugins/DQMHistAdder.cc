@@ -1,4 +1,4 @@
-#include "TauAnalysis/DQMTools/interface/DQMHistAdder.h"
+#include "TauAnalysis/DQMTools/plugins/DQMHistAdder.h"
 
 #include "TauAnalysis/DQMTools/interface/dqmAuxFunctions.h"
 #include "TauAnalysis/DQMTools/interface/generalAuxFunctions.h"

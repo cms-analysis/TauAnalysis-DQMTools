@@ -5,7 +5,7 @@
  *  
  *  Class to produce efficiency histograms by dividing nominator by denominator histograms
  *
- *  $Date: 2008/11/18 16:41:39 $
+ *  $Date: 2009/01/21 16:04:59 $
  *  $Revision: 1.1 $
  *  \author Christian Veelken, UC Davis
  */

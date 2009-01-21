@@ -6,7 +6,7 @@
  *  Class to write all monitor elements registered in DQMStore into ROOT file
  *  (without any naming restrictions imposed by "regular" DQMFileSaver)
  *
- *  $Date: 2008/11/18 16:41:39 $
+ *  $Date: 2009/01/21 16:05:00 $
  *  $Revision: 1.1 $
  *  \author Christian Veelken, UC Davis
  */
