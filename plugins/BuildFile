@@ -1,4 +1,4 @@
-export></export>
+<export></export>
 <library name=TauAnalysisDQMTools_plugins file=*.cc>
   <use name=FWCore/Framework>
   <use name=FWCore/PluginManager>
