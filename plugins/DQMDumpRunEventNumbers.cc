@@ -64,7 +64,7 @@ void DQMDumpRunEventNumbers::endJob()
 
 //--- check that DQMStore service is available
   if ( !edm::Service<DQMStore>().isAvailable() ) {
-    edm::LogError ("endJob") << " Failed to access dqmStore --> histograms will NOT be plotted !!";
+    edm::LogError ("endJob") << " Failed to access dqmStore --> run + event Numbers will NOT be written !!";
     return;
   }
 
