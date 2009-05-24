@@ -18,14 +18,15 @@ process.source = cms.Source("EmptySource")
 
 process.loadFilterStatistics = cms.EDAnalyzer("DQMFileLoader",
   tmp = cms.PSet(
-    inputFileNames = cms.vstring('../../Configuration/test/plotsZtoElecMu_Ztautau.root'),
+    inputFileNames = cms.vstring('../../Configuration/test/plotsZtoMuTau_Ztautau_part01.root',
+                                 '../../Configuration/test/plotsZtoMuTau_Ztautau_part02.root'),
     dqmDirectory_store = cms.string('tmp')
   )
 )
 
 process.dumpRunEventNumbers = cms.EDAnalyzer("DQMDumpRunEventNumbers",
-  dqmDirectories = cms.vstring('tmp/zElecMuAnalyzer/FilterStatistics/diTauCandidateForElecMuZeroChargeCut/events_passed_cumulative/'),
-  runEventNumberFileName = cms.string("selEvents_zElecMu.txt")
+  dqmDirectories = cms.vstring('tmp/zMuTauAnalyzer/FilterStatistics/evtSelDiTauCandidateForMuTauMt1MET/events_passed_cumulative/'),
+  runEventNumberFileName = cms.string("selEvents_zMuTau.txt")
 )
  
 process.p = cms.Path( process.loadFilterStatistics
