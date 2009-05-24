@@ -21,6 +21,24 @@ class drawJobConfigurator(cms._ParameterTypeBase):
 
         self.drawJobs = cms.PSet()
 
+    @staticmethod
+    def _composeSubDirectoryName(afterCut = None, beforeCut = None):
+        # auxiliary function to compose name of dqmSubDirectory
+        # in which histograms filled after applying afterCut,
+        # but before applying beforeCut, are stored
+
+        dqmSubDirectory = ""
+        if ( afterCut is not None ):
+            afterCut_name = getattr(afterCut, "pluginName").value()
+            dqmSubDirectory += "after" + afterCut_name[0:1].capitalize() + afterCut_name[1:]
+        if ( beforeCut is not None ):
+            beforeCut_name = getattr(beforeCut, "pluginName").value()
+            if dqmSubDirectory != "":
+                dqmSubDirectory += "_"
+            dqmSubDirectory += "before" + beforeCut_name[0:1].capitalize() + beforeCut_name[1:]
+
+        return dqmSubDirectory;
+
     def add(self, afterCut = None, beforeCut = None, plot = None, plots = None):
         # configure drawJob
         # and add to configuration object
@@ -43,14 +61,7 @@ class drawJobConfigurator(cms._ParameterTypeBase):
         drawJob = copy.deepcopy(self.template)
 
         dqmDirectory = self.dqmDirectory
-        if ( afterCut is not None ):
-            afterCut_name = getattr(afterCut, "pluginName").value()
-            dqmDirectory += "after" + afterCut_name[0:1].capitalize() + afterCut_name[1:]
-        if ( beforeCut is not None ):
-            beforeCut_name = getattr(afterCut, "pluginName").value()
-            if not dqmDirectory.endswith("/"):
-                dqmDirectory += "_"
-            dqmDirectory += "before" + beforeCut_name[0:1].capitalize() + beforeCut_name[1:]
+        dqmDirectory += drawJobConfigurator._composeSubDirectoryName(afterCut = afterCut, beforeCut = beforeCut)
         if not dqmDirectory.endswith("/"):
             dqmDirectory += "/"    
 
