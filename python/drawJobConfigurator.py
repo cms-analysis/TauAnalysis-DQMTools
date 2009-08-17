@@ -63,9 +63,11 @@ class drawJobConfigurator(cms._ParameterTypeBase):
         dqmDirectory = self.dqmDirectory
         dqmDirectory += drawJobConfigurator._composeSubDirectoryName(afterCut = afterCut, beforeCut = beforeCut)
         if not dqmDirectory.endswith("/"):
-            dqmDirectory += "/"    
+            dqmDirectory += "/"
 
-        setattr(drawJob.plots, "dqmMonitorElements", cms.vstring(dqmDirectory + getattr(plot, "meName")))
+        dqmMonitorElement = dqmDirectory + getattr(plot, "meName")
+
+        setattr(drawJob.plots, "dqmMonitorElements", cms.vstring([ dqmMonitorElement, ]))
         if hasattr(plot, "PAR"):
             setattr(drawJob, "parameter", cms.vstring(getattr(plot, "PAR")))
         setattr(drawJob, "title", cms.string(getattr(plot, "title")))
