@@ -3,6 +3,7 @@
 //DQM services
 #include "DQMServices/Core/interface/DQMStore.h"
 #include "FWCore/ServiceRegistry/interface/Service.h"
+#include "FWCore/MessageLogger/interface/MessageLogger.h"
 
 DQMStoreDump::DQMStoreDump(const edm::ParameterSet& cfg)
 {
