@@ -22,6 +22,17 @@ class drawJobConfigurator(cms._ParameterTypeBase):
         self.drawJobs = cms.PSet()
 
     @staticmethod
+    def _getCutName(cut):
+        if ( isinstance(cut, cms.PSet) ):
+            return getattr(cut, "pluginName").value()
+        elif ( isinstance(cut, cms.string) ):
+            return cut.value()
+        elif ( isinstance(cut, str) ):            
+            return cut
+        else:
+            raise ValueError("Invalid type for 'cut' Parameter !!")
+
+    @staticmethod
     def _composeSubDirectoryName(afterCut = None, beforeCut = None):
         # auxiliary function to compose name of dqmSubDirectory
         # in which histograms filled after applying afterCut,
@@ -29,10 +40,10 @@ class drawJobConfigurator(cms._ParameterTypeBase):
 
         dqmSubDirectory = ""
         if ( afterCut is not None ):
-            afterCut_name = getattr(afterCut, "pluginName").value()
+            afterCut_name = drawJobConfigurator._getCutName(afterCut)
             dqmSubDirectory += "after" + afterCut_name[0:1].capitalize() + afterCut_name[1:]
         if ( beforeCut is not None ):
-            beforeCut_name = getattr(beforeCut, "pluginName").value()
+            beforeCut_name = drawJobConfigurator._getCutName(beforeCut)
             if dqmSubDirectory != "":
                 dqmSubDirectory += "_"
             dqmSubDirectory += "before" + beforeCut_name[0:1].capitalize() + beforeCut_name[1:]
