@@ -27,19 +27,30 @@ std::string replace_string(const std::string& src, const std::string& keyword, c
 //-----------------------------------------------------------------------------------------------------------------------
 //
 
-std::string format_vstring(const std::vector<std::string>& vs)
+template <typename T>
+std::string format_vT(const std::vector<T>& vT)
 {
   std::ostringstream os;
   
   os << "{ ";
 
-  unsigned numEntries = vs.size();
+  unsigned numEntries = vT.size();
   for ( unsigned iEntry = 0; iEntry < numEntries; ++iEntry ) {
-    os << vs[iEntry];
+    os << vT[iEntry];
     if ( iEntry < (numEntries - 1) ) os << ", ";
   }
 
   os << " }";
   
   return os.str();
+}
+
+std::string format_vstring(const std::vector<std::string>& vs)
+{
+  return format_vT(vs);
+}
+
+std::string format_vdouble(const std::vector<double>& vd)
+{
+  return format_vT(vd);
 }

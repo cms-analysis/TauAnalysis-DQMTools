@@ -8,7 +8,8 @@
 
 std::string replace_string(const std::string&, const std::string&, const std::string&, unsigned, unsigned, int&);
 
-std::string format_vstring(const std::vector<std::string>& vs);
+std::string format_vstring(const std::vector<std::string>&);
+std::string format_vdouble(const std::vector<double>&);
 
 template <class T>
 void readCfgParameter(const edm::ParameterSet& cfgParSet, std::map<std::string, T>& def)
