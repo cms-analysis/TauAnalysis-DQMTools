@@ -10,7 +10,7 @@ std::string replace_string(const std::string& src, const std::string& keyword, c
   std::string modSrc = src;
 
 //--- search for first occuremce of keyword in source string
-  int pos = modSrc.find(keyword);
+  unsigned pos = modSrc.find(keyword);
 
   unsigned numReplacements = 0;
 
