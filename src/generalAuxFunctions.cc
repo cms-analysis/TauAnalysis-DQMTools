@@ -8,23 +8,23 @@ std::string replace_string(const std::string& src, const std::string& keyword, c
 			   unsigned minReplacements, unsigned maxReplacements, int& errorFlag)
 {
   std::string modSrc = src;
-
 //--- search for first occuremce of keyword in source string
-  unsigned pos = modSrc.find(keyword);
+  std::string::size_type pos = modSrc.find(keyword);
 
   unsigned numReplacements = 0;
 
   while ( pos != std::string::npos ) {
-    modSrc.replace(pos, keyword.length(), parameter);
-    ++numReplacements;
+     modSrc.replace(pos, keyword.length(), parameter);
+     ++numReplacements;
 
 //--- do not search keyword within parameter which has been replaced
 //    (in order to allow keyword to be present in parameter
 //     and void running into an infinite loop in that case)
-    pos += parameter.length();
+     pos += parameter.length();
 
 //--- search for next occuremce of keyword in source string
-    pos = modSrc.find(keyword, pos);
+     pos = modSrc.find(keyword, pos);
+
   }
   if ( (numReplacements < minReplacements) ||
        (numReplacements > maxReplacements) ) {
