@@ -16,7 +16,6 @@ std::string replace_string(const std::string& src, const std::string& keyword, c
   while ( pos != std::string::npos ) {
      modSrc.replace(pos, keyword.length(), parameter);
      ++numReplacements;
-
 //--- do not search keyword within parameter which has been replaced
 //    (in order to allow keyword to be present in parameter
 //     and void running into an infinite loop in that case)
@@ -24,7 +23,6 @@ std::string replace_string(const std::string& src, const std::string& keyword, c
 
 //--- search for next occuremce of keyword in source string
      pos = modSrc.find(keyword, pos);
-
   }
   if ( (numReplacements < minReplacements) ||
        (numReplacements > maxReplacements) ) {
