@@ -23,4 +23,13 @@ void readCfgParameter(const edm::ParameterSet& cfgParSet, std::map<std::string, 
   }
 }
 
+template <class T>
+void copyCfgParameter(const edm::ParameterSet& cfgParSet_source, const std::string& cfgParName_source,
+		      edm::ParameterSet& cfgParSet_target, std::string cfgParName_target = "")
+{
+  if ( cfgParName_target == "" ) cfgParName_target = cfgParName_source;
+  const T& cfgParValue = cfgParSet_source.getParameter<T>(cfgParName_source);
+  cfgParSet_target.addParameter(cfgParName_target, cfgParValue);
+}
+
 #endif
