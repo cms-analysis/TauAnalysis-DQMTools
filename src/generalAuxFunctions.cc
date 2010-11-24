@@ -65,3 +65,13 @@ std::string format_vdouble(const std::vector<double>& vd)
 {
   return format_vT(vd);
 }
+
+std::string format_vint(const std::vector<int>& vi)
+{
+  return format_vT(vi);
+}
+
+std::string format_vunsigned(const std::vector<unsigned>& vu)
+{
+  return format_vT(vu);
+}
